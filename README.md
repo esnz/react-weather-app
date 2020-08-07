@@ -33,5 +33,7 @@ npm start
 ## Credits
 
 [OpenWeatherMap](https://openweathermap.org/ 'OpenWeatherMap') (Weather data API)
+
 [Teleport Public APIs](http://developers.teleport.org/api/getting_started/ 'Teleport Public APIs') (Place suggestion API)
+
 [Icons8.com](https://www.icons8.com 'Icons8.com') (Weather icons)
