@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: url('./assets/bg.svg') no-repeat center 120%, linear-gradient(#f9ffff 0%, #38c8e6 100%);
+  background-size: auto;
+}
+#root {
+  max-width: 960px;
+  width: 100%;
+  margin: auto 0;
+  padding: 0 1rem;
+}
+
+/*
+CSS Toggle Switch
+https://stackoverflow.com/questions/39846282/how-to-add-the-text-on-and-off-to-toggle-button
+*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+.switch input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #77b1c7;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+input:checked + .slider:before {
+  transform: translateX(28px);
+}
+.on {
+  display: none;
+  padding-right: 15px;
+}
+.off {
+  padding-left: 15px;
+}
+.on,
+.off {
+  color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+}
+input:checked + .slider .on {
+  display: block;
+}
+input:checked + .slider .off {
+  display: none;
+}
+.slider.round {
+  border-radius: 5px;
+}
+.slider.round:before {
+  border-radius: 4px;
+}
