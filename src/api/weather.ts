@@ -1,4 +1,4 @@
-const baseUrl = 'http://api.openweathermap.org/data/2.5';
+const baseUrl = 'https://api.openweathermap.org/data/2.5';
 
 export const fetchWeatherData = (city: string | { lat: number; lng: number }) => {
   let url = `${baseUrl}/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
