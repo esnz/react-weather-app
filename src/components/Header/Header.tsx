@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Title>ReactWeather</Title>
-      <GithubLink href="http://www.github.com/esnz/">
+      <GithubLink href="http://www.github.com/esnz/reactweather">
         <GithubIcon />
       </GithubLink>
     </HeaderContainer>
