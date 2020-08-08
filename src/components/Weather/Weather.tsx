@@ -52,8 +52,8 @@ const Weather: React.FC = () => {
               }}
             />
             <div className="slider round">
-              <span className="on">C</span>
-              <span className="off">F</span>
+              <span className="on">F</span>
+              <span className="off">C</span>
             </div>
           </label>
         </div>
