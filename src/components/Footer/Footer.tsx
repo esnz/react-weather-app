@@ -4,7 +4,9 @@ import { FooterContainer } from './styled';
 const Footer: React.FC = () => {
   return (
     <FooterContainer>
-      <p>Developed By Ehsan Azizi </p>
+      <p>
+        Developed By <a href="https://www.ehsanazizi.me">Ehsan Azizi</a>
+      </p>
     </FooterContainer>
   );
 };

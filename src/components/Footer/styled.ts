@@ -6,5 +6,8 @@ export const FooterContainer = styled.footer`
     font-size: 1rem;
     text-align: center;
     color: #2f6f8a;
+    a {
+      color: #1a5a73;
+    }
   }
 `;
