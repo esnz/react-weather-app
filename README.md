@@ -1,6 +1,6 @@
 # ReactWeather
 
-<img src="https://user-images.githubusercontent.com/25284536/89673475-ac759780-d8fb-11ea-93af-b557088c945b.png" width="700">
+<img src="https://user-images.githubusercontent.com/25284536/90274607-2535a000-de76-11ea-9d21-ab8c3e68b3a9.png" width="400"> <img src="https://user-images.githubusercontent.com/25284536/90274626-29fa5400-de76-11ea-97a7-c6b67ec2f66a.png" width="400">
 
 Weather App built with React.
 [Live Demo](https://esnz-reactweather.netlify.app/)
@@ -8,6 +8,14 @@ Weather App built with React.
 ## Tech Stack
 
 **React, Typescript, Redux, StyledComponents**
+
+## Features
+
+**Weather forecast for any city or place**
+**Extended 7 days forecast**
+**Find user location weather by utilizing GeolocationAPI**
+**One-click Celcius to Fahrenheit conversion and vice versa**
+**Dark Mode**
 
 ## Getting Started
 
