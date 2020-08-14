@@ -14,3 +14,7 @@ export const setIsInitialState = (state: boolean) => ({
   type: AppActionTypes.SET_IS_INITIAL,
   payload: state,
 });
+
+export const toggleDarkMode = () => ({
+  type: AppActionTypes.TOGGLE_DARK_MODE,
+});

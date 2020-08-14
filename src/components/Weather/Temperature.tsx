@@ -9,7 +9,7 @@ interface ITemperatureProps {
 
 const Temperature: React.FC<ITemperatureProps> = (props) => {
   const { degreeType } = useSelector((state: AppStore) => ({
-    degreeType: state.app.TempUnit,
+    degreeType: state.app.tempUnit,
   }));
 
   if (degreeType === TempUnit.FAHRENHEIT) {

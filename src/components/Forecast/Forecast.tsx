@@ -11,9 +11,7 @@ const Forecast: React.FC = () => {
     forecast: state.weather.extendedWeatherData,
   }));
 
-  if (isInitial) {
-    return <></>;
-  }
+  if (isInitial) return <></>;
 
   return (
     <ForecastContainer>

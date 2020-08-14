@@ -7,14 +7,19 @@ export const HeaderContainer = styled.header`
   height: 8rem;
 `;
 export const Title = styled.h1`
-  color: #2f6f8a;
+  color: ${({ theme }) => theme.appTitleColor};
   font-size: 2.2rem;
 `;
 export const GithubLink = styled.a`
+  margin-left: 1rem;
   svg {
-    fill: #2f6f8a;
+    fill: ${({ theme }) => theme.appTitleColor};
   }
   &:hover svg {
     fill: #20546a;
   }
+`;
+export const HeaderIconsContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;

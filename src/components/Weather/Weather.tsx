@@ -21,11 +21,12 @@ import {
   WeatherDegree,
 } from './styled';
 import Temperature from './Temperature';
+import ToggleSwitch from '../ui/ToggleSwitch/ToggleSwitch';
 
 const Weather: React.FC = () => {
   const { weather, degreeType, isInitial, isError } = useSelector((store: AppStore) => ({
     weather: store.weather.weatherData,
-    degreeType: store.app.TempUnit,
+    degreeType: store.app.tempUnit,
     isInitial: store.app.isInitial,
     isError: store.weather.isError,
   }));
@@ -33,7 +34,7 @@ const Weather: React.FC = () => {
 
   useEffect(() => {
     if (isError) {
-      console.log('Cannot load weather for this city');
+      console.log('Cannot load weather for this place');
     }
   }, [isError]);
 
@@ -44,18 +45,7 @@ const Weather: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <SectionTitle>Current Weather</SectionTitle>
         <div>
-          <label className="switch">
-            <input
-              type="checkbox"
-              onClick={() => {
-                dispatch(changeDegreeType());
-              }}
-            />
-            <div className="slider round">
-              <span className="on">F</span>
-              <span className="off">C</span>
-            </div>
-          </label>
+          <ToggleSwitch onClick={() => dispatch(changeDegreeType())} />
         </div>
       </div>
       <CurrentWeatherContainer>

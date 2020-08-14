@@ -6,24 +6,26 @@ export const SearchElement = styled.div`
   position: relative;
   height: 3.25rem;
   border-radius: 26px;
-  background: #fff;
+  background: ${({ theme }) => theme.panelBgColor};
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.4rem;
   display: flex;
   align-items: center;
+  z-index: 1;
 `;
 export const SearchInput = styled.input`
   flex: 1;
   margin-left: 1rem;
   height: 3.25rem;
   border: none;
+  background-color: ${({ theme }) => theme.panelBgColor};
   font-size: 1.125rem;
-  color: #404c5b;
+  color: ${({ theme }) => theme.searchInput.color};
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: #727e8e;
+    color: ${({ theme }) => theme.searchInput.placeholderColor};
   }
 `;
 export const SearchIcon = styled(SearchIconSvg)`
@@ -47,7 +49,7 @@ export const SearchResult = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  background: #fff;
+  background: ${({ theme }) => theme.searchSuggestion.backgroundColor};
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   width: 98%;
   left: 1%;
@@ -62,10 +64,10 @@ export const SuggestionItem = styled.a`
   padding: 0.6rem 1rem;
   display: block;
   text-align: left;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 1px dotted ${({ theme }) => theme.searchSuggestion.seperatorLineColor};
   font-size: 1rem;
   cursor: pointer;
   &:hover {
-    background-color: #f9f9f9;
+    background-color: ${({ theme }) => theme.searchSuggestion.hoverBackgroundColor};
   }
 `;

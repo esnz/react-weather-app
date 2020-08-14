@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer';
 import Forecast from '../components/Forecast/Forecast';
 import Header from '../components/Header/Header';
 import Search from '../components/Search/Search';
-import Spinner from '../components/Spinner/Spinner';
+import Spinner from '../components/ui/Spinner/Spinner';
 import Weather from '../components/Weather/Weather';
 import { AppStore } from '../store/appStore';
 
