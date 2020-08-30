@@ -42,6 +42,6 @@ npm start
 
 [OpenWeatherMap](https://openweathermap.org/ 'OpenWeatherMap') (Weather data API)
 
-[Teleport Public APIs](http://developers.teleport.org/api/getting_started/ 'Teleport Public APIs') (Place suggestion API)
+[Algolia Places](https://community.algolia.com/places/ 'Algolia Places') (Place suggestion API)
 
 [Icons8.com](https://www.icons8.com 'Icons8.com') (Weather icons)
