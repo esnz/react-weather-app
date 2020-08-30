@@ -10,7 +10,7 @@ import Suggestion from './Suggestion';
 const Search: React.FC = () => {
   const dispatch = useDispatch();
   const suggestionRef = useRef(null);
-  const [suggestions, setSuggestions] = useState<[{ matching_full_name: string }]>();
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -57,7 +57,7 @@ const Search: React.FC = () => {
           {suggestions?.slice(0, 6)?.map((s, i) => (
             <Suggestion
               key={i}
-              label={s.matching_full_name}
+              label={s}
               hideSuggestionFn={() => {
                 setShowSuggestions(false);
               }}
