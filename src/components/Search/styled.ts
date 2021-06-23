@@ -21,6 +21,7 @@ export const SearchInput = styled.input`
   background-color: ${({ theme }) => theme.panelBgColor};
   font-size: 1.125rem;
   color: ${({ theme }) => theme.searchInput.color};
+  width: 100%;
   &:focus {
     outline: none;
   }
