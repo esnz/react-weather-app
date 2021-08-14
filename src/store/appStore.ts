@@ -1,18 +1,14 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import { appReducer, IAppState } from './reducers/appReducer';
-import { IWeatherState, weatherReducer } from './reducers/weatherReducer';
+import { configureStore } from '@reduxjs/toolkit';
+import appReducer from './reducers/appReducer';
+import weatherReducer from './reducers/weatherReducer';
 
-const rootReducer = combineReducers({
-  app: appReducer,
-  weather: weatherReducer,
+const store = configureStore({
+  reducer: {
+    app: appReducer,
+    weather: weatherReducer,
+  },
 });
 
-export type AppStore = {
-  app: IAppState;
-  weather: IWeatherState;
-};
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
+export type AppStore = ReturnType<typeof store.getState>;
 
 export default store;

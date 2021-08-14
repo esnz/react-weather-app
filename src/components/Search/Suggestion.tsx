@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchWeatherFromApi } from '../../store/actions/weather';
+import { fetchWeather } from '../../store/fetchWeather';
 import { SuggestionItem } from './styled';
 
 interface ISuggestionProps {
@@ -12,7 +12,7 @@ const Suggestion: React.FC<ISuggestionProps> = (props) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(fetchWeatherFromApi(props.label.split(',')[0]));
+    dispatch(fetchWeather(props.label.split(',')[0]));
     setTimeout(() => {
       props.hideSuggestionFn();
     }, 400);

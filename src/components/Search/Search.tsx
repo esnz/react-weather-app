@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { DebounceInput } from 'react-debounce-input';
 import { useDispatch } from 'react-redux';
-import { fetchWeatherFromApi } from '../../store/actions/weather';
+import { fetchWeather } from '../../store/fetchWeather';
 import { fetchCities } from './../../api/placeSuggestion';
 import { useClickOutside } from './../../hooks/useClickOutside';
 import { LocationButton, LocationIcon, SearchElement, SearchIcon, SearchInput, SearchResult } from './styled';
@@ -31,7 +31,7 @@ const Search: React.FC = () => {
   };
   const showPosition = (position: any) => {
     dispatch(
-      fetchWeatherFromApi({
+      fetchWeather({
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       })

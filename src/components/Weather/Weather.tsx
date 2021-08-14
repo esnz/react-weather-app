@@ -5,9 +5,10 @@ import { ReactComponent as HumidityIcon } from '../../assets/humidity-icon.svg';
 import { ReactComponent as LowIcon } from '../../assets/low-icon.svg';
 import { ReactComponent as PressureIcon } from '../../assets/pressure-icon.svg';
 import { ReactComponent as WindIcon } from '../../assets/wind-icon.svg';
-import { changeDegreeType } from '../../store/actions/app';
 import { AppStore } from '../../store/appStore';
+import { changeTempUnit } from '../../store/reducers/appReducer';
 import { kmToMile, TempUnit } from '../../utils/unitConversion';
+import ToggleSwitch from '../ui/ToggleSwitch/ToggleSwitch';
 import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import {
   CurrentWeather,
@@ -21,7 +22,6 @@ import {
   WeatherDegree,
 } from './styled';
 import Temperature from './Temperature';
-import ToggleSwitch from '../ui/ToggleSwitch/ToggleSwitch';
 
 const Weather: React.FC = () => {
   const { weather, degreeType, isInitial, isError } = useSelector((store: AppStore) => ({
@@ -45,7 +45,7 @@ const Weather: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <SectionTitle>Current Weather</SectionTitle>
         <div>
-          <ToggleSwitch onClick={() => dispatch(changeDegreeType())} />
+          <ToggleSwitch onClick={() => dispatch(changeTempUnit())} />
         </div>
       </div>
       <CurrentWeatherContainer>
