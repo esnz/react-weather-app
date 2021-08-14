@@ -11,8 +11,9 @@ export const fetchCities = async (search: string) => {
     })
   ).json();
 
-  const result: string[] = [];
-  res.hits.forEach((i: any) => result.push(i.locale_names[0]));
-
-  return result;
+  return res.hits
+    .filter((item: any) => item.is_city)
+    .map((i: any) => {
+      return i.locale_names[0] + ', ' + i.country;
+    });
 };
