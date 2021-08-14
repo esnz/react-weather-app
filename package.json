@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -14,12 +15,9 @@
     "react-dark-mode-toggle": "0.0.9",
     "react-debounce-input": "^3.2.2",
     "react-dom": "^16.13.1",
-    "react-redux": "^7.2.1",
+    "react-redux": "^7.2.4",
     "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.1",
-    "typescript": "^3.7.5"
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +42,7 @@
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.9",
-    "@types/styled-components": "^5.1.1"
+    "@types/styled-components": "^5.1.1",
+    "typescript": "^4.3.5"
   }
 }
