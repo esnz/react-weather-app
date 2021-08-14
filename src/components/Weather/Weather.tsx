@@ -5,7 +5,7 @@ import { ReactComponent as HumidityIcon } from '../../assets/humidity-icon.svg';
 import { ReactComponent as LowIcon } from '../../assets/low-icon.svg';
 import { ReactComponent as PressureIcon } from '../../assets/pressure-icon.svg';
 import { ReactComponent as WindIcon } from '../../assets/wind-icon.svg';
-import { AppStore } from '../../store/appStore';
+import { AppStore } from '../../store/store';
 import { changeTempUnit } from '../../store/reducers/appReducer';
 import { kmToMile, TempUnit } from '../../utils/unitConversion';
 import ToggleSwitch from '../ui/ToggleSwitch/ToggleSwitch';

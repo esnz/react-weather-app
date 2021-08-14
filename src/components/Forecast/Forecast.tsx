@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppStore } from '../../store/appStore';
+import { AppStore } from '../../store/store';
 import ForecastItem from './ForecastItem';
 import { ForecastContainer, ForecastItems, SectionTitle } from './styled';
 

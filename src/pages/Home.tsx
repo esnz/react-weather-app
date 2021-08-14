@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 import Search from '../components/Search/Search';
 import Spinner from '../components/ui/Spinner/Spinner';
 import Weather from '../components/Weather/Weather';
-import { AppStore } from '../store/appStore';
+import { AppStore } from '../store/store';
 
 const Home = () => {
   const { loading } = useSelector((state: AppStore) => ({

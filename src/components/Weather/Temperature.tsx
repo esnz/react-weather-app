@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppStore } from '../../store/appStore';
+import { AppStore } from '../../store/store';
 import { celciusToFahrenheit, TempUnit } from '../../utils/unitConversion';
 
 interface ITemperatureProps {

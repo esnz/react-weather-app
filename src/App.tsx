@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './app.styled';
 import Home from './pages/Home';
-import { AppStore } from './store/appStore';
+import { AppStore } from './store/store';
 import { darkTheme, lightTheme } from './theme';
 
 const App: React.FC = () => {
