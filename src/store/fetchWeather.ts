@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IExtendedForecastData, IWeatherData } from '../api/types';
+import { ExtendedForecastData, WeatherData } from '../api/types';
 import { fetchExtendedForecastData, fetchWeatherData } from '../api/weather';
 import { getNextSevenDays } from '../utils/dateUtils';
 import { kelvinToCelcius } from '../utils/unitConversion';
@@ -29,11 +29,11 @@ export const fetchWeather = createAsyncThunk(
 export const transformWeatherData = (
   res: any
 ): {
-  weather: IWeatherData;
-  forecast: IExtendedForecastData[];
+  weather: WeatherData;
+  forecast: ExtendedForecastData[];
 } => {
-  const weather = res[0] as IWeatherData;
-  const forecast: IExtendedForecastData[] = [];
+  const weather = res[0] as WeatherData;
+  const forecast: ExtendedForecastData[] = [];
 
   weather.weather = res[0].weather[0];
   weather.main = {

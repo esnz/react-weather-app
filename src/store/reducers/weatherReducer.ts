@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IExtendedForecastData, IWeatherData } from '../../api/types';
+import { ExtendedForecastData, WeatherData } from '../../api/types';
 import { fetchWeather, transformWeatherData } from '../fetchWeather';
 
-export interface IWeatherState {
-  weatherData: IWeatherData;
-  extendedWeatherData: IExtendedForecastData[];
+export type WeatherState = {
+  weatherData: WeatherData;
+  extendedWeatherData: ExtendedForecastData[];
   isError: boolean;
 }
 
-const initialState: IWeatherState = {
+const initialState: WeatherState = {
   weatherData: {
     main: {
       feels_like: 0,

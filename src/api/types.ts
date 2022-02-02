@@ -1,4 +1,4 @@
-export interface IWeatherData {
+export type WeatherData = {
   weather: {
     id: number;
     main: string;
@@ -25,7 +25,7 @@ export interface IWeatherData {
   name: string;
 }
 
-export interface IExtendedForecastData {
+export type ExtendedForecastData = {
   day: string;
   temp: {
     temp_min: number;
