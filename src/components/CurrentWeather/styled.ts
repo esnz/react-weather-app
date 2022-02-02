@@ -20,7 +20,7 @@ export const CurrentWeatherContainer = styled.div`
     justify-content: flex-start;
   }
 `;
-export const CurrentWeather = styled.div`
+export const CurrentWeatherStatus = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 1.5rem;

@@ -9,9 +9,9 @@ import { AppStore } from '../../store/store';
 import { changeTempUnit } from '../../store/reducers/appReducer';
 import { kmToMile, TempUnit } from '../../utils/unitConversion';
 import ToggleSwitch from '../ui/ToggleSwitch/ToggleSwitch';
-import WeatherIcon from '../WeatherIcon/WeatherIcon';
+import WeatherIcon from './WeatherIcon';
 import {
-  CurrentWeather,
+  CurrentWeatherStatus,
   CurrentWeatherContainer,
   CurrentWeatherInfo,
   FeelsLike,
@@ -23,7 +23,7 @@ import {
 } from './styled';
 import Temperature from './Temperature';
 
-const Weather: React.FC = () => {
+const CurrentWeather: React.FC = () => {
   const { weather, degreeType, isInitial, isError } = useSelector((store: AppStore) => ({
     weather: store.weather.weatherData,
     degreeType: store.app.tempUnit,
@@ -49,7 +49,7 @@ const Weather: React.FC = () => {
         </div>
       </div>
       <CurrentWeatherContainer>
-        <CurrentWeather>
+        <CurrentWeatherStatus>
           <h4>{weather.name}</h4>
           <div style={{ display: 'flex' }}>
             <WeatherIcon code={weather.weather.id} big />
@@ -59,7 +59,7 @@ const Weather: React.FC = () => {
             </span>
           </div>
           <h6>{weather.weather.description}</h6>
-        </CurrentWeather>
+        </CurrentWeatherStatus>
 
         <CurrentWeatherInfo>
           <FeelsLike>
@@ -105,4 +105,4 @@ const Weather: React.FC = () => {
   );
 };
 
-export default Weather;
+export default CurrentWeather;

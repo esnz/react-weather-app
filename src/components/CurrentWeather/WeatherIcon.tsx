@@ -18,12 +18,12 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
   let Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
   switch (props.code) {
-    //Clear
+    // Clear
     case 800:
       Icon = SunnyIcon;
       break;
 
-    //Cloud
+    // Cloud
     case 801:
     case 802:
       Icon = PartlyCloudyIcon;
@@ -33,7 +33,7 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       Icon = CloudyIcon;
       break;
 
-    //Rain
+    // Rain
     case 500:
     case 501:
     case 520:
@@ -49,7 +49,7 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       Icon = HeavyRainIcon;
       break;
 
-    //Drizzle
+    // Drizzle
     case 300:
     case 301:
     case 302:
@@ -62,7 +62,7 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       Icon = RainIcon;
       break;
 
-    //Thunderstorm
+    // Thunderstorm
     case 200:
     case 201:
     case 202:
@@ -76,7 +76,7 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       Icon = ThunderstormIcon;
       break;
 
-    //Snow
+    // Snow
     case 600:
     case 601:
     case 602:
@@ -93,7 +93,7 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       Icon = SleetIcon;
       break;
 
-    //Atmosphere
+    // Atmosphere
     case 701:
     case 711:
     case 721:

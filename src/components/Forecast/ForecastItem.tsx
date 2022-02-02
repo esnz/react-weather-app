@@ -1,6 +1,6 @@
 import React from 'react';
-import Temperature from '../Weather/Temperature';
-import WeatherIcon from './../WeatherIcon/WeatherIcon';
+import Temperature from '../CurrentWeather/Temperature';
+import WeatherIcon from '../CurrentWeather/WeatherIcon';
 import { ForecastItemContainer } from './styled';
 
 interface IForecastItemProps {
