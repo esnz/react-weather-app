@@ -7,7 +7,7 @@ Weather App built with React.
 
 ## Tech Stack
 
-**React, Typescript, Redux, StyledComponents**
+**React, TypeScript, Vite**
 
 ## Features
 
@@ -23,7 +23,7 @@ First you need an API key from OpenWeatherMap, you can get one by creating an ac
 After you got your API key, create a **.env** file at root directory of project, copy the line below to the file and replace YOUR_KEY with your OpenWeatherMap API Key.
 
 ```
-REACT_APP_WEATHER_API_KEY=YOUR_KEY
+VITE_WEATHER_API_KEY=YOUR_KEY
 ```
 
 Finally clone this repository, install dependencies and run the local server
@@ -35,13 +35,13 @@ git clone https://github.com/esnz/reactweather.git
 ```bash
 cd reactweather
 npm install
-npm start
+npm run dev
 ```
 
 ## Credits
 
 [OpenWeatherMap](https://openweathermap.org/ 'OpenWeatherMap') (Weather data API)
 
-[Algolia Places](https://community.algolia.com/places/ 'Algolia Places') (Place suggestion API)
+[Open-Meteo Geocoding](https://open-meteo.com/en/docs/geocoding-api 'Open-Meteo Geocoding') (Place suggestion API)
 
 [Icons8.com](https://www.icons8.com 'Icons8.com') (Weather icons)

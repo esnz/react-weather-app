@@ -1,22 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { AppStore } from '../../store/store';
+import { useAppContext } from '../../context/AppContext';
 import ForecastItem from './ForecastItem';
-import { ForecastContainer, ForecastItems, SectionTitle } from './styled';
 
 const Forecast: React.FC = () => {
-  const { forecast, isInitial } = useSelector((state: AppStore) => ({
-    loading: state.app.isLoading,
-    isInitial: state.app.isInitial,
-    forecast: state.weather.extendedWeatherData,
-  }));
+  const { extendedWeatherData: forecast, isInitial } = useAppContext();
 
   if (isInitial) return <></>;
 
   return (
-    <ForecastContainer>
-      <SectionTitle>Extended Forecast</SectionTitle>
-      <ForecastItems>
+    <div className="rw-forecast">
+      <h6 className="rw-section-title">Extended Forecast</h6>
+      <div className="rw-forecast-items">
         {forecast.map((item, i) => {
           return (
             <ForecastItem
@@ -29,8 +23,8 @@ const Forecast: React.FC = () => {
             />
           );
         })}
-      </ForecastItems>
-    </ForecastContainer>
+      </div>
+    </div>
   );
 };
 

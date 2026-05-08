@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { AppStore } from '../../store/store';
+import { useAppContext } from '../../context/AppContext';
 import { celciusToFahrenheit, TempUnit } from '../../utils/unitConversion';
 
 interface ITemperatureProps {
@@ -8,9 +7,7 @@ interface ITemperatureProps {
 }
 
 const Temperature: React.FC<ITemperatureProps> = (props) => {
-  const { degreeType } = useSelector((state: AppStore) => ({
-    degreeType: state.app.tempUnit,
-  }));
+  const { tempUnit: degreeType } = useAppContext();
 
   if (degreeType === TempUnit.FAHRENHEIT) {
     return <>{celciusToFahrenheit(props.value)}</>;

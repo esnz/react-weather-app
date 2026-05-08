@@ -1,47 +1,74 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DebounceInput } from 'react-debounce-input';
-import { useDispatch } from 'react-redux';
-import { fetchWeather } from '../../store/fetchWeather';
-import { fetchCities } from './../../api/placeSuggestion';
+import { useAppContext } from '../../context/AppContext';
+import { fetchCities, PlaceSuggestion } from './../../api/placeSuggestion';
 import { useClickOutside } from './../../hooks/useClickOutside';
-import { LocationButton, LocationIcon, SearchElement, SearchIcon, SearchInput, SearchResult } from './styled';
+import LocationIcon from '../../assets/location-icon.svg?react';
+import SearchIcon from '../../assets/search-icon.svg?react';
 import Suggestion from './Suggestion';
 
 const Search: React.FC = () => {
-  const dispatch = useDispatch();
-  const suggestionRef = useRef(null);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const { fetchWeather } = useAppContext();
+  const suggestionRef = useRef<HTMLDivElement>(null);
+  const [suggestions, setSuggestions] = useState<PlaceSuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setSearchTerm(inputValue.trim());
+    }, 300);
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [inputValue]);
+
+  useEffect(() => {
     if (!searchTerm) {
+      setSuggestions([]);
+      setShowSuggestions(false);
       return;
     }
+
+    let isActive = true;
     setShowSuggestions(true);
+
     fetchCities(searchTerm).then((res) => {
-      setSuggestions(res);
+      if (isActive) {
+        setSuggestions(res);
+      }
     });
+
+    return () => {
+      isActive = false;
+    };
   }, [searchTerm]);
 
   useClickOutside(suggestionRef, () => setShowSuggestions(false));
 
-  const onSearchInputChanged = (e: any) => {
-    setSearchTerm(e.target.value);
+  const onSearchInputChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
-  const showPosition = (position: any) => {
-    dispatch(
-      fetchWeather({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      })
-    );
+
+  const showPosition = (position: GeolocationPosition) => {
+    fetchWeather({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
   };
   return (
-    <SearchElement>
-      <SearchIcon />
-      <DebounceInput element={SearchInput} debounceTimeout={300} onChange={onSearchInputChanged} placeholder="Search for location" />
-      <LocationButton
+    <div className="rw-search">
+      <SearchIcon className="rw-search-icon" />
+      <input
+        className="rw-search-input"
+        value={inputValue}
+        onChange={onSearchInputChanged}
+        placeholder="Search for location"
+      />
+      <button
+        className="rw-location-button"
+        type="button"
         onClick={() => {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -50,22 +77,22 @@ const Search: React.FC = () => {
           }
         }}
       >
-        <LocationIcon />
-      </LocationButton>
+        <LocationIcon className="rw-location-icon" />
+      </button>
       {showSuggestions && (
-        <SearchResult ref={suggestionRef}>
-          {suggestions?.slice(0, 6)?.map((s, i) => (
+        <div className="rw-search-result" ref={suggestionRef}>
+          {suggestions.map((suggestion) => (
             <Suggestion
-              key={i}
-              label={s}
+              key={suggestion.id}
+              suggestion={suggestion}
               hideSuggestionFn={() => {
                 setShowSuggestions(false);
               }}
             />
           ))}
-        </SearchResult>
+        </div>
       )}
-    </SearchElement>
+    </div>
   );
 };
 

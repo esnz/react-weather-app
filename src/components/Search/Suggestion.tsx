@@ -1,24 +1,27 @@
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchWeather } from '../../store/fetchWeather';
-import { SuggestionItem } from './styled';
+import { PlaceSuggestion } from '../../api/placeSuggestion';
+import { useAppContext } from '../../context/AppContext';
 
 interface ISuggestionProps {
-  label: string;
-  hideSuggestionFn: Function;
+  suggestion: PlaceSuggestion;
+  hideSuggestionFn: () => void;
 }
 
 const Suggestion: React.FC<ISuggestionProps> = (props) => {
-  const dispatch = useDispatch();
+  const { fetchWeather } = useAppContext();
 
   const onClick = () => {
-    dispatch(fetchWeather(props.label.split(',')[0]));
+    fetchWeather({ lat: props.suggestion.lat, lng: props.suggestion.lng });
     setTimeout(() => {
       props.hideSuggestionFn();
     }, 400);
   };
 
-  return <SuggestionItem onClick={onClick}>{props.label}</SuggestionItem>;
+  return (
+    <button className="rw-suggestion-item" type="button" onClick={onClick}>
+      {props.suggestion.label}
+    </button>
+  );
 };
 
 export default Suggestion;

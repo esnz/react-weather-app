@@ -1,36 +1,23 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as HighIcon } from '../../assets/high-icon.svg';
-import { ReactComponent as HumidityIcon } from '../../assets/humidity-icon.svg';
-import { ReactComponent as LowIcon } from '../../assets/low-icon.svg';
-import { ReactComponent as PressureIcon } from '../../assets/pressure-icon.svg';
-import { ReactComponent as WindIcon } from '../../assets/wind-icon.svg';
-import { AppStore } from '../../store/store';
-import { changeTempUnit } from '../../store/reducers/appReducer';
+import HighIcon from '../../assets/high-icon.svg?react';
+import HumidityIcon from '../../assets/humidity-icon.svg?react';
+import LowIcon from '../../assets/low-icon.svg?react';
+import PressureIcon from '../../assets/pressure-icon.svg?react';
+import WindIcon from '../../assets/wind-icon.svg?react';
+import { useAppContext } from '../../context/AppContext';
 import { kmToMile, TempUnit } from '../../utils/unitConversion';
 import ToggleSwitch from '../ui/ToggleSwitch/ToggleSwitch';
 import WeatherIcon from './WeatherIcon';
-import {
-  CurrentWeatherStatus,
-  CurrentWeatherContainer,
-  CurrentWeatherInfo,
-  FeelsLike,
-  HighLowContainer,
-  InfoRow,
-  SectionTitle,
-  WeatherContainer,
-  WeatherDegree,
-} from './styled';
 import Temperature from './Temperature';
 
 const CurrentWeather: React.FC = () => {
-  const { weather, degreeType, isInitial, isError } = useSelector((store: AppStore) => ({
-    weather: store.weather.weatherData,
-    degreeType: store.app.tempUnit,
-    isInitial: store.app.isInitial,
-    isError: store.weather.isError,
-  }));
-  const dispatch = useDispatch();
+  const {
+    changeTempUnit,
+    isError,
+    isInitial,
+    tempUnit: degreeType,
+    weatherData: weather,
+  } = useAppContext();
 
   useEffect(() => {
     if (isError) {
@@ -41,17 +28,17 @@ const CurrentWeather: React.FC = () => {
   if (isInitial) return <></>;
 
   return (
-    <WeatherContainer>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <SectionTitle>Current Weather</SectionTitle>
+    <div className="rw-weather">
+      <div className="rw-weather-header">
+        <h6 className="rw-section-title">Current Weather</h6>
         <div>
-          <ToggleSwitch onClick={() => dispatch(changeTempUnit())} />
+          <ToggleSwitch onClick={changeTempUnit} />
         </div>
       </div>
-      <CurrentWeatherContainer>
-        <CurrentWeatherStatus>
+      <div className="rw-current-weather-inner">
+        <div className="rw-current-status">
           <h4>{weather.name}</h4>
-          <div style={{ display: 'flex' }}>
+          <div className="rw-current-temp">
             <WeatherIcon code={weather.weather.id} big />
             <span>
               <Temperature value={weather.main.temp} />
@@ -59,32 +46,32 @@ const CurrentWeather: React.FC = () => {
             </span>
           </div>
           <h6>{weather.weather.description}</h6>
-        </CurrentWeatherStatus>
+        </div>
 
-        <CurrentWeatherInfo>
-          <FeelsLike>
+        <div className="rw-current-info">
+          <p className="rw-feels-like">
             Feels like <Temperature value={weather.main.feels_like} />
             <sup>&deg;</sup>
-          </FeelsLike>
-          <HighLowContainer>
-            <WeatherDegree>
+          </p>
+          <div className="rw-high-low">
+            <div className="rw-weather-degree">
               <HighIcon />
               <Temperature value={weather.main.temp_max} />
               <sup>&deg;</sup>
-            </WeatherDegree>
-            <WeatherDegree>
+            </div>
+            <div className="rw-weather-degree">
               <LowIcon />
               <Temperature value={weather.main.temp_min} />
               <sup>&deg;</sup>
-            </WeatherDegree>
-          </HighLowContainer>
-          <InfoRow>
+            </div>
+          </div>
+          <div className="rw-info-row">
             <div>
               <HumidityIcon /> Humidity
             </div>
             <span>{weather.main.humidity}%</span>
-          </InfoRow>
-          <InfoRow>
+          </div>
+          <div className="rw-info-row">
             <div>
               <WindIcon /> Wind
             </div>
@@ -92,16 +79,16 @@ const CurrentWeather: React.FC = () => {
               {degreeType === TempUnit.CELCIUS ? weather.wind.speed : kmToMile(weather.wind.speed)}
               {degreeType === TempUnit.CELCIUS ? 'kph' : 'mph'}
             </span>
-          </InfoRow>
-          <InfoRow>
+          </div>
+          <div className="rw-info-row">
             <div>
               <PressureIcon /> Pressure
             </div>
             <span>{weather.main.pressure}hPa</span>
-          </InfoRow>
-        </CurrentWeatherInfo>
-      </CurrentWeatherContainer>
-    </WeatherContainer>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

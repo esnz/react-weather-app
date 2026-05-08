@@ -1,14 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App';
-import store from './store/store';
+import { AppProvider } from './context/AppContext';
+import './styles.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+const root = document.getElementById('root');
+
+if (!root) {
+  throw new Error('Root element not found');
+}
+
+createRoot(root).render(
+  <StrictMode>
+    <AppProvider>
       <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </AppProvider>
+  </StrictMode>
 );

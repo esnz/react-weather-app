@@ -1,7 +1,6 @@
 import React from 'react';
 import Temperature from '../CurrentWeather/Temperature';
 import WeatherIcon from '../CurrentWeather/WeatherIcon';
-import { ForecastItemContainer } from './styled';
 
 interface IForecastItemProps {
   day: string;
@@ -12,7 +11,7 @@ interface IForecastItemProps {
 }
 const ForecastItem: React.FC<IForecastItemProps> = (props) => {
   return (
-    <ForecastItemContainer>
+    <div className="rw-forecast-item">
       <h6>{props.day}</h6>
       <WeatherIcon code={props.weatherCode} />
       <p>{props.main}</p>
@@ -23,7 +22,7 @@ const ForecastItem: React.FC<IForecastItemProps> = (props) => {
         <Temperature value={props.low} />
         <sup>&deg;</sup>
       </span>
-    </ForecastItemContainer>
+    </div>
   );
 };
 

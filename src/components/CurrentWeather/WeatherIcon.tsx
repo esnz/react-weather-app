@@ -1,13 +1,13 @@
 import React from 'react';
-import { ReactComponent as CloudyIcon } from '../../assets/weather/cloudy.svg';
-import { ReactComponent as HazeIcon } from '../../assets/weather/haze.svg';
-import { ReactComponent as HeavyRainIcon } from '../../assets/weather/heavy-rain.svg';
-import { ReactComponent as PartlyCloudyIcon } from '../../assets/weather/partly-cloudy.svg';
-import { ReactComponent as RainIcon } from '../../assets/weather/rain.svg';
-import { ReactComponent as SleetIcon } from '../../assets/weather/sleet.svg';
-import { ReactComponent as SnowIcon } from '../../assets/weather/snow.svg';
-import { ReactComponent as SunnyIcon } from '../../assets/weather/sunny.svg';
-import { ReactComponent as ThunderstormIcon } from '../../assets/weather/thunderstorm.svg';
+import CloudyIcon from '../../assets/weather/cloudy.svg?react';
+import HazeIcon from '../../assets/weather/haze.svg?react';
+import HeavyRainIcon from '../../assets/weather/heavy-rain.svg?react';
+import PartlyCloudyIcon from '../../assets/weather/partly-cloudy.svg?react';
+import RainIcon from '../../assets/weather/rain.svg?react';
+import SleetIcon from '../../assets/weather/sleet.svg?react';
+import SnowIcon from '../../assets/weather/snow.svg?react';
+import SunnyIcon from '../../assets/weather/sunny.svg?react';
+import ThunderstormIcon from '../../assets/weather/thunderstorm.svg?react';
 
 interface IWeatherIconProps {
   code: number;

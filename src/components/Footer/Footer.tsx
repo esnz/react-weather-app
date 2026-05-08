@@ -1,13 +1,12 @@
 import React from 'react';
-import { FooterContainer } from './styled';
 
 const Footer: React.FC = () => {
   return (
-    <FooterContainer>
+    <footer className="rw-footer">
       <p>
         Developed By <a href="https://www.ehsanazizi.me">Ehsan Azizi</a>
       </p>
-    </FooterContainer>
+    </footer>
   );
 };
 
