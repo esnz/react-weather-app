@@ -18,7 +18,7 @@ const Header: React.FC = () => {
         >
           <span className="rw-dark-mode-thumb" />
         </button>
-        <a className="rw-github-link" href="http://www.github.com/esnz/reactweather">
+        <a className="rw-github-link" href="http://www.github.com/esnz/react-weather-app">
           <GithubIcon />
         </a>
       </div>
